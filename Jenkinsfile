@@ -19,7 +19,7 @@ pipeline {
         stage('terraform Plan') {
             steps{
             withAWS(credentials: 'aws') {
-                sh 'terraform plan'
+                sh 'terraform plan -var-file=dev.tfvars'
             }
             }
         }
