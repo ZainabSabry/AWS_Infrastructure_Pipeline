@@ -11,7 +11,9 @@ pipeline {
         }
         stage('terraform Init') {
             steps{
+            withAWS(credentials: 'aws'){
                 sh 'terraform init'
+            }
             }
         }
         stage('terraform Plan') {
