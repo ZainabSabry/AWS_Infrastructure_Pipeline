@@ -1,5 +1,5 @@
 ansible_host: 10.0.3.51
-ansible_ssh_private_key_file: /home/zsabry/20-Jenkins/Labs/lab2/ansible_slave/redhat.pem
+ansible_ssh_private_key_file: key.pem
 ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ProxyCommand="ssh -W %h:%p -q ec2-user@bastion"'
 install:
 - docker 
