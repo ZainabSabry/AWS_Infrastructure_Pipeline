@@ -52,6 +52,6 @@ output "private_vpc_security_group_ids" {
   value = aws_security_group.private.id
 }
 
-output "key_pair_name" {
-  value = aws_key_pair.public_key_pair.key_name
-}
+# output "key_pair_name" {
+#   value = aws_key_pair.public_key_pair.key_name
+# }
