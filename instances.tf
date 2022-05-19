@@ -11,7 +11,8 @@ resource "aws_instance" "bastion" {
   }
 
   provisioner "local-exec" {
-    command = "echo the public IP of bastion ${self.public_ip} > provisioner.txt"
+    command = "sed -i 's/.*public.*/public ansible_host=${self.public_ip}/' ./ansible/hosts"
+    
   }
 }
 
@@ -27,6 +28,12 @@ resource "aws_instance" "application" {
   tags = {
     Name = "${var.name}-application"
   }
+
+  provisioner "local-exec" {
+    command = "sed -i 's/.*ansible_host.*/ansible_host: ${self.private_ip}/' ./ansible/group_vars/slave"
+    
+  }
+
 }
 
 
