@@ -1,5 +1,6 @@
 - name: test
   hosts: all 
+  host_key_checking: False
   tasks:
   - name: ping all hosts
     ping:
