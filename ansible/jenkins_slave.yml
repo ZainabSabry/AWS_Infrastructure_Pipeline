@@ -29,6 +29,6 @@
     - /home/ec2-user/bin
   - name: copying the agent.jar to the slave
     copy:
-      src: ./ansible/files/agent.jar
+      src: /var/jenkins_home/workspace/infrastructre_pipeline/ansible/files/agent.jar
       dest: /home/ec2-user/bin/agent.jar
 
