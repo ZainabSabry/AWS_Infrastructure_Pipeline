@@ -33,7 +33,7 @@ pipeline {
      stage('ansible configure') {
             steps {
         withAWS(credentials: 'aws'){
-                sh 'terraform -chdir=./terraform output public_instance'
+                sh 'terraform -chdir=./terraform output instance_public'
                 sh 'chmod +x ./scripts/ips.sh'
                 sh './scripts/ips.sh'
                 // sh 'sed -i "s#HostName.*#HostName $(terraform -chdir=./terraform output --raw instance_public)#" /var/jenkins_home/.ssh/config'
