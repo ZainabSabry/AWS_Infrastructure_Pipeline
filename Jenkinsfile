@@ -43,8 +43,8 @@ pipeline {
      stage('ssh_test') {
             steps {
             ansiblePlaybook( 
-              playbook: '/var/jenkins_home/workspace/infrastructure-pipeline/ansible/test.yaml',
-              inventory: '/var/jenkins_home/workspace/infrastructure-pipeline/ansible/hosts', 
+              playbook: '/var/jenkins_home/workspace/infrastructre_pipeline/ansible/test.yaml',
+              inventory: '/var/jenkins_home/workspace/infrastructre_pipeline/ansible/hosts', 
               credentialsId: 'ansible_ssh',
               become : true,
               becomeUser:'root',
