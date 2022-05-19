@@ -11,10 +11,8 @@ resource "aws_instance" "bastion" {
   }
 
   provisioner "local-exec" {
-    command = <<EOT
-      sed -i 's/.*public.*/public ansible_host=${self.public_ip}/' ../ansible/hosts
-      sed -i 's#.*Host.*#Host ${self.public_ip}#' /var/jenkins_home/.ssh/config
-    EOT
+    command = "sed -i 's#HostName.*#Host ${self.public_ip}#' /var/jenkins_home/.ssh/config"
+    
   }
 }
 
@@ -34,7 +32,7 @@ resource "aws_instance" "application" {
   provisioner "local-exec" {
     command = <<EOT
          sed -i 's/.*ansible_host.*/ansible_host: ${self.private_ip}/' ../ansible/group_vars/slave
-        sed -i 's#.*proxy_pass.*#proxy_pass http://${self.private_ip}:3000;#' ../ansible/files/nginx.conf
+        sed -i 's#proxy_pass.*#proxy_pass http://${self.private_ip}:3000;#' ../ansible/files/nginx.conf
     EOT
     
     
