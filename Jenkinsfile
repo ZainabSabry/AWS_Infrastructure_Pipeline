@@ -56,12 +56,30 @@ pipeline {
      }
      stage('configure the slave instance') {
             steps {
-                sh 'ansible-playbook -i ./ansible/hosts ./ansible/jenkins_slave.yml'                
+            ansiblePlaybook( 
+              playbook: '/var/jenkins_home/workspace/infrastructre_pipeline/ansible/jenkins_slave.yml',
+              inventory: '/var/jenkins_home/workspace/infrastructre_pipeline/ansible/hosts', 
+              credentialsId: 'ansible_ssh',
+              become : true,
+              becomeUser:'root',
+              hostKeyChecking:false,
+              installation:'ansible',
+              colorized: true
+              )                 
         }
      }
      stage('configure bastion as proxy_server') {
             steps {
-                sh 'ansible-playbook -i ./ansible/hosts  ./ansible/nginx_proxy.yml'   
+            ansiblePlaybook( 
+              playbook: '/var/jenkins_home/workspace/infrastructre_pipeline/ansible/nginx_proxy.yml',
+              inventory: '/var/jenkins_home/workspace/infrastructre_pipeline/ansible/hosts', 
+              credentialsId: 'ansible_ssh',
+              become : true,
+              becomeUser:'root',
+              hostKeyChecking:false,
+              installation:'ansible',
+              colorized: true
+              )             
         }
      }
     }
