@@ -1,5 +1,5 @@
 - name: configure bastion to be a proxy server
-  hosts: bastion
+  hosts: bastion-grp
   tasks:
   - name: installing nginx
     command: "amazon-linux-extras install nginx1 -y"
