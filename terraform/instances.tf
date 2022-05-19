@@ -11,8 +11,10 @@ resource "aws_instance" "bastion" {
   }
 
   provisioner "local-exec" {
-    command = "sed -i 's/.*public.*/public ansible_host=${self.public_ip}/' ../ansible/hosts"
-    
+    command = <<EOT
+      sed -i 's/.*public.*/public ansible_host=${self.public_ip}/' ../ansible/hosts
+      sed -i 's#.*HostName.*#Host ${self.public_ip}#' /var/jenkins_home/.ssh/config
+    EOT
   }
 }
 
