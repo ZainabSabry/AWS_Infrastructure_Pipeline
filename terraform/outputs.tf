@@ -56,3 +56,11 @@ output "private_vpc_security_group_ids" {
 #   value = aws_key_pair.public_key_pair.key_name
 # }
 
+output "instance_public" {
+  value = aws_instance.bastion.public_ip
+}
+
+
+output "instance_private" {
+  value = aws_instance.application.private_ip
+}
