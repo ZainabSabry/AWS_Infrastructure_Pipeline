@@ -44,7 +44,7 @@ pipeline {
             steps {
             ansiblePlaybook( 
               playbook: '/var/jenkins_home/workspace/infrastructure-pipeline/ansible/test.yml',
-              inventory: './ansible/hosts', 
+              inventory: '/var/jenkins_home/workspace/infrastructure-pipeline/ansible/hosts', 
               credentialsId: 'ansible_ssh',
               become : true,
               becomeUser:'root',
