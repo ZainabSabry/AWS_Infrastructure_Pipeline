@@ -27,8 +27,13 @@ pipeline {
             steps {
         withAWS(credentials: 'aws') {
             sh 'terraform -chdir=./terraform apply --var-file=dev.tfvars --auto-approve'
+        }    
         }
-                
+     }
+     stage('ansible configure') {
+            steps {
+                sh "chmod +x ./scripts/ips.sh"
+                sh "./scripts/ips.sh"
         }
      }
     }
