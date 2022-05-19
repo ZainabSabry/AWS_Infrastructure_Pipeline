@@ -12,21 +12,21 @@ pipeline {
         stage('terraform Init') {
             steps{
             withAWS(credentials: 'aws'){
-                sh 'terraform init'
+                sh 'terraform -chdir=./terraform init'
             }
             }
         }
         stage('terraform Plan') {
             steps{
             withAWS(credentials: 'aws') {
-                sh 'terraform plan -var-file=dev.tfvars'
+                sh 'terraform plan -chdir=./terraform -var-file=dev.tfvars'
             }
             }
         }
         stage('terraform apply') {
             steps {
         withAWS(credentials: 'aws') {
-            sh 'terraform apply --var-file=dev.tfvars --auto-approve'
+            sh 'terraform apply -chdir=./terraform --var-file=dev.tfvars --auto-approve'
         }
                 
         }
