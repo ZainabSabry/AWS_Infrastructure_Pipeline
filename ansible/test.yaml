@@ -1,6 +1,6 @@
 - name: test
   hosts: all 
-  var_files:
+  vars_files:
   - group_vars/slave
   tasks:
   - name: ping all hosts
