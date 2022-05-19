@@ -42,19 +42,26 @@ pipeline {
      }
      stage('ssh_test') {
             steps {
-                sh 'cd ./ansible'
-                sh 'ansible-playbook -i ./ansible/hosts  ./ansible/ssh_config.yml'
-                sh 'ansible-playbook -i ./ansible/hosts  ./ansible/test.yaml'
+            ansiblePlaybook( 
+              playbook: './ansible/test.yml',
+              inventory: './ansible/hosts', 
+              credentialsId: 'redhat',
+              become : true,
+              becomeUser:'root',
+              hostKeyChecking:false,
+              installation:'ansible',
+              colorized: true
+              ) 
         }
      }
      stage('configure the slave instance') {
             steps {
-                sh 'ansible-playbook -i ./ansible/hosts ./ansible ./ansible/jenkins_slave.yml'                
+                sh 'ansible-playbook -i ./ansible/hosts ./ansible/jenkins_slave.yml'                
         }
      }
      stage('configure bastion as proxy_server') {
             steps {
-                sh 'ansible-playbook -i ./ansible/hosts  ./ansible ./ansible/nginx_proxy.yml'   
+                sh 'ansible-playbook -i ./ansible/hosts  ./ansible/nginx_proxy.yml'   
         }
      }
     }
