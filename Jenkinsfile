@@ -45,7 +45,7 @@ pipeline {
             ansiblePlaybook( 
               playbook: './ansible/test.yml',
               inventory: './ansible/hosts', 
-              credentialsId: 'redhat',
+              credentialsId: 'ansible_ssh',
               become : true,
               becomeUser:'root',
               hostKeyChecking:false,
