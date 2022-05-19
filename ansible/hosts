@@ -1,7 +1,7 @@
 [slave]
 server1
 
-[bastion]
+[bastion-grp]
 bastion
 
 
