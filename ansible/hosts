@@ -2,7 +2,6 @@
 server1
 
 [bastion]
-44.200.5.85 
-
+bastion
 
 
