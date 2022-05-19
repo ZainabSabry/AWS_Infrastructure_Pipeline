@@ -11,7 +11,7 @@ resource "aws_instance" "bastion" {
   }
 
   provisioner "local-exec" {
-    command = "sed -i 's#HostName.*#Host ${self.public_ip}#' /var/jenkins_home/.ssh/config"
+    command = "sed -i 's#HostName.*#HostName ${self.public_ip}#' /var/jenkins_home/.ssh/config"
     
   }
 }
