@@ -6,3 +6,4 @@ eu-central-1-dev-public-key_pair.pem
 .mysql.txt
 .redis.txt
 lambda.txt
+destroy*
