@@ -49,6 +49,6 @@ Then, go to the Jenkins page and configure it as follows:
 
 - Type a name and configure it as follows:
 <p align='center'>
-<img src="./imgs/container_slave.jpg" alt="architecture" width="50%" height="50%"/>
+<img src="./imgs/container_slave.jpg" alt="architecture" />
 </p>
 
