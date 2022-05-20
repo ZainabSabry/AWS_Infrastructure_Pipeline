@@ -48,7 +48,7 @@ Then, go to the Jenkins page and configure it as follows:
 - go to "Manage Jankins". Then choose "Manage Nodes and Clouds". From there choose "New Node".
 
 - Type a name and configure it as follows:
-<p align='center'>
+
 <img src="./imgs/cslave.jpg" alt="architecture" width="50%" height="50%"/>
-</p>
+
 
