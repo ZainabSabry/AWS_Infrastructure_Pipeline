@@ -161,7 +161,7 @@ $ ssh -T -o ProxyCommand="ssh -W %h:%p -q bastion" -i /var/jenkins_home/.ssh/red
 
 - You can now proceed with running a CI/CD pipeline to deploy a node.js application on the new slave which also serves to test your application's connectivity to the RDS and ElastiCache instances. <b> Press the icon for the app deployment:</v>
 <p align='center'>
-<a href="https://github.com/ZainabSabry/CI-CD_Pipeline_nodejs_app.git"><img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-ar21.svg"/></a>
+<a href="https://github.com/ZainabSabry/CI-CD_Pipeline_nodejs_app.git"><img src="https://www.vectorlogo.zone/logos/github/github-icon.svg"/></a>
 </p>
 
 ## Tools
