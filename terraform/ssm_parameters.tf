@@ -9,27 +9,6 @@ resource "aws_ssm_parameter" "rds_endpoint" {
   }
 }
 
-resource "aws_ssm_parameter" "rds_username" {
-  name        = "/${var.name}/database/username"
-  description = "rds username"
-  type        = "SecureString"
-  value       = aws_db_instance.terra-rds.username
-
-  tags = {
-    environment = "${var.name}"
-  }
-}
-
-resource "aws_ssm_parameter" "rds_password" {
-  name        = "/${var.name}/database/password"
-  description = "rds password"
-  type        = "SecureString"
-  value       = aws_db_instance.terra-rds.password
-
-  tags = {
-    environment = "${var.name}"
-  }
-}
 
 resource "aws_ssm_parameter" "redis_endpoint" {
   name        = "/${var.name}/redis/endpoint"
