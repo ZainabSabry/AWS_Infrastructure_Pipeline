@@ -24,6 +24,7 @@ resource "aws_elasticache_replication_group" "elastic_redis_cluster" {
   automatic_failover_enabled  = true
   subnet_group_name = aws_elasticache_subnet_group.terra-cache-subnet-group.name
   replication_group_id        = "tf-rep-group-1"
+  description = "elastiCache Redis Cluster"
   node_type                   = "cache.${var.instance_type}"
   num_cache_clusters       = 2
   port                        = 6379
