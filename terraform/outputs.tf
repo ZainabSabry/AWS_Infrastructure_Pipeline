@@ -67,7 +67,7 @@ output "instance_private" {
 
 
 output "rds_endpoint" {
-  value = aws_db_instance.terra-rds.endpoint
+  value = aws_db_instance.terra-rds.address
 }
 
 
