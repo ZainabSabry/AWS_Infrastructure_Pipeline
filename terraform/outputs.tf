@@ -86,11 +86,12 @@ output "rds_port" {
   value = aws_db_instance.terra-rds.port
 }
 
-output "redis_endpoint" {
-  value = aws_elasticache_cluster.elastic_cache_redis.cluster_address
-}
-
 
 output "redis_port" {
   value = aws_elasticache_cluster.elastic_cache_redis.port
+}
+
+
+output "redis_cluster_endpoint" {
+  value = aws_elasticache_cluster.elastic_cache_redis.cluster_address
 }
