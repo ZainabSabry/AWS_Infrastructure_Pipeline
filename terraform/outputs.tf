@@ -64,3 +64,33 @@ output "instance_public" {
 output "instance_private" {
   value = aws_instance.application.private_ip
 }
+
+
+output "rds_endpoint" {
+  value = aws_db_instance.terra-rds.endpoint
+}
+
+
+output "rds_username" {
+  value = aws_db_instance.terra-rds.username
+}
+
+
+output "rds_password" {
+  value = aws_db_instance.terra-rds.password
+  sensitive = true
+}
+
+
+output "rds_port" {
+  value = aws_db_instance.terra-rds.port
+}
+
+output "redis_endpoint" {
+  value = aws_elasticache_cluster.elastic_cache_redis.cluster_address
+}
+
+
+output "redis_port" {
+  value = aws_elasticache_cluster.elastic_cache_redis.port
+}
