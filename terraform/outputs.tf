@@ -88,10 +88,10 @@ output "rds_port" {
 
 
 output "redis_port" {
-  value = aws_elasticache_cluster.elastic_cache_redis.port
+  value = aws_elasticache_replication_group.elastic_redis_cluster.port
 }
 
 
 output "redis_cluster_endpoint" {
-  value = aws_elasticache_cluster.elastic_cache_redis.cluster_address
+  value = aws_elasticache_replication_group.elastic_redis_cluster.primary_endpoint_address
 }
