@@ -33,7 +33,7 @@ pipeline {
      stage('ansible prep') {
             steps {
         withAWS(credentials: 'aws'){
-                sh 'terraform -chdir=./terraform output instance_public'
+                sh 'terraform -chdir=./terraform output redis_endpoint'
                 sh 'chmod +x ./scripts/ips.sh'
                 sh './scripts/ips.sh'
              }
