@@ -71,15 +71,15 @@ output "rds_endpoint" {
 }
 
 
-output "rds_username" {
-  value = aws_db_instance.terra-rds.username
-}
+# output "rds_username" {
+#   value = aws_db_instance.terra-rds.username
+# }
 
 
-output "rds_password" {
-  value = aws_db_instance.terra-rds.password
-  sensitive = true
-}
+# output "rds_password" {
+#   value = aws_db_instance.terra-rds.password
+#   sensitive = true
+# }
 
 
 output "rds_port" {
